@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>notification-api</title>
+    <meta name="description" content="notification api">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        height: 100%;
+      }
+
+      body {
+        min-height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+    </style>
+    <script src="https://unpkg.com/@feathersjs/client@^5.0.0-pre.34/dist/feathers.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module" src="client.js"></script>
+  </head>
+  <body>
+    <h1>NOTIFICATION API</h1>
+    <h2>System Events</h2>
+    <ul id="systemEventList">
+      
+    </ul>
+    
+  </body>
+</html>
+
