@@ -28,13 +28,6 @@ export const notificationDataSchema = Type.Pick(notificationSchema, ['data', 'ty
 export const notificationDataValidator = getValidator(notificationDataSchema, dataValidator)
 export const notificationDataResolver = resolve({})
 
-// Schema for updating existing entries
-export const notificationPatchSchema = Type.Partial(notificationSchema, {
-  $id: 'NotificationPatch'
-})
-export const notificationPatchValidator = getValidator(notificationPatchSchema, dataValidator)
-export const notificationPatchResolver = resolve({})
-
 // Schema for allowed query properties
 export const notificationQueryProperties = Type.Pick(notificationSchema, [
   '_id',
