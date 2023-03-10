@@ -3,12 +3,10 @@
 import { hooks as schemaHooks } from '@feathersjs/schema'
 import {
   notificationDataValidator,
-  notificationPatchValidator,
   notificationQueryValidator,
   notificationResolver,
   notificationExternalResolver,
   notificationDataResolver,
-  notificationPatchResolver,
   notificationQueryResolver
 } from './notification.schema.js'
 import { NotificationService, getOptions } from './notification.class.js'
@@ -45,11 +43,8 @@ export const notification = (app) => {
         schemaHooks.validateData(notificationDataValidator),
         schemaHooks.resolveData(notificationDataResolver)
       ],
-      patch: [
-        schemaHooks.validateData(notificationPatchValidator),
-        schemaHooks.resolveData(notificationPatchResolver)
-      ],
-      remove: []
+      patch: [notAvailable],
+      remove: [notAvailable]
     },
     after: {
       all: []
@@ -58,4 +53,8 @@ export const notification = (app) => {
       all: []
     }
   })
+
+  function notAvailable() {
+    throw new Error('NOT AVAILABLE')
+  }
 }
