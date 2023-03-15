@@ -9,5 +9,7 @@
     "default": 10,
     "max": 50
   },
-  "mongodb": "mongodb://127.0.0.1:27017/notification-api"
+  "mongodb": "mongodb://127.0.0.1:27017/notification-api",
+  "CLIENT_API_KEYS": ["client-key-1"],
+  "SENDER_API_KEYS":["sender-key-1"]
 }
