@@ -8,7 +8,11 @@ import { dataValidator, queryValidator } from '../../validators.js'
 export const notificationSchema = Type.Object(
   {
     _id: ObjectIdSchema(),
-    text: Type.String()
+    type: Type.String(),
+    topic: Type.String(),
+    createdAt: Type.Number(),
+    sendAt: Type.Number(),
+    data: Type.Any()
   },
   { $id: 'Notification', additionalProperties: false }
 )
@@ -18,7 +22,7 @@ export const notificationResolver = resolve({})
 export const notificationExternalResolver = resolve({})
 
 // Schema for creating new entries
-export const notificationDataSchema = Type.Pick(notificationSchema, ['text'], {
+export const notificationDataSchema = Type.Pick(notificationSchema, ['data', 'type', 'topic'], {
   $id: 'NotificationData'
 })
 export const notificationDataValidator = getValidator(notificationDataSchema, dataValidator)
@@ -32,7 +36,13 @@ export const notificationPatchValidator = getValidator(notificationPatchSchema, 
 export const notificationPatchResolver = resolve({})
 
 // Schema for allowed query properties
-export const notificationQueryProperties = Type.Pick(notificationSchema, ['_id', 'text'])
+export const notificationQueryProperties = Type.Pick(notificationSchema, [
+  '_id',
+  'topic',
+  'type',
+  'createdAt',
+  'sendAt'
+])
 export const notificationQuerySchema = Type.Intersect(
   [
     querySyntax(notificationQueryProperties),

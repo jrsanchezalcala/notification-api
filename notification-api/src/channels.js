@@ -9,6 +9,8 @@ export const channels = (app) => {
   app.on('connection', (connection) => {
     // On a new real-time connection, add it to the anonymous channel
     app.channel('anonymous').join(connection)
+    //TODO - added just for tests , remove later. This allow all user to received all events
+    app.channel('authenticated').join(connection)
   })
 
   app.on('login', (authResult, { connection }) => {

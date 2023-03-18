@@ -4,7 +4,7 @@ import authenticationClient from '@feathersjs/authentication-client'
 import { notificationClient } from './services/notification/notification.shared.js'
 
 /**
- * Returns a  client for the NotificationAPI app.
+ * Returns a  client for the notification-api app.
  *
  * @param connection The REST or Socket.io Feathers client connection
  * @param authenticationOptions Additional settings for the authentication client
